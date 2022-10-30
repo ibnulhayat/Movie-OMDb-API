@@ -14,11 +14,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        database = Room.databaseBuilder(applicationContext,
-        ConnectDatabase::class.java,
-        "movieBD").build()
+        database = ConnectDatabase.getDataBase(this)
         GlobalScope.launch {
-            database.connectDao().insertMovie(Movie(0, "Don", "123","Movie", "2000", "abc.com"))
+            database.movieDao().insertMovie(Movie(0, "Don", "123", "Movie", "2000", "abc.com"))
         }
     }
 }
