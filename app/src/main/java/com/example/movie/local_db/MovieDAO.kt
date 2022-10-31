@@ -12,5 +12,5 @@ interface MovieDAO {
     suspend fun insertMovie(movie: Movie)
 
     @Query("SELECT * FROM MOVIES")
-    fun getMovie(): LiveData<List<Movie>>
+    fun getMovieFromBD(): LiveData<List<Movie>>
 }
